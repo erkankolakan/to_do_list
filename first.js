@@ -30,6 +30,7 @@ icerik : (icerik.insertAdjacentHTML("beforeend", `<li class="gorevler"> <div> <i
         }
       }
       
+      
 
     
   
