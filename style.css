@@ -1,0 +1,81 @@
+html{
+    font-size: 10px;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+}
+:root{
+--mavi: #3A98B9;
+ --krem : #FFF1DC;
+ --koyukrem : #E8D5C4;
+ --gri : #EEEEEE;
+}
+  
+
+  #container{
+    background-color:var(--krem);
+    padding: 2rem 5rem;
+    
+  }
+  .container_giris input[type="text"] {
+    width: 35rem;
+    outline-color:var(--mavi);
+    border-radius: 0.5rem;
+    border-color: var(--gri);
+    margin:2rem 2rem 2rem 0 ;
+    text-align: center;
+    align-items: center;
+  }
+  .container_giris input[type="button"] {
+    height: 2rem;
+    align-items: center;
+  }
+
+  .order ul li {
+    display: flex;
+    text-align: center;
+    width: 35rem;
+    list-style-type: none;
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: #3A98B9;
+    border: 0.1rem solid red;
+    margin-bottom:0.5rem ;
+    transition: 0.5s;
+    transform: scale(0.95);
+    }
+
+
+.order ul li:hover{
+    pointer-events:auto;
+    transform: scale(1);
+    box-shadow: inset;
+}
+
+  .order ul li:hover{
+    background-color: aquamarine;
+  }
+
+
+  .onayladi{
+    text-decoration: line-through;
+  }
+.fa-solid {
+    text-align: right;
+    display: flex;
+}
+
+.gorevler {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  
+  
+  
