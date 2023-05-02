@@ -27,7 +27,6 @@ icerik : (icerik.insertAdjacentHTML("beforeend", `<li class="gorevler"> <div> <i
           liElement.classList.add("onayladi");
         } else {
           liElement.classList.remove("onayladi");
-       
         }
       }
       
