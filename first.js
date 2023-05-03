@@ -10,86 +10,74 @@ const container = document.querySelector("#container");
 
 document.addEventListener("DOMContentLoaded", function() {
     container.classList.add("yuklenme_ekrani")
-   
-
+  
 });
 
-let gorevler_dizisi = JSON.parse(localStorage.getItem("todos"))
 
+var gorevler_dizisi = JSON.parse(localStorage.getItem("todos")) != null ? JSON.parse(localStorage.getItem("todos")) : []
 
-let goreKontrol = (x) =>{
-  if(x.length == 0){
+var faruk = () => {
+  if(gorevler_dizisi.length==0){
     icerik.insertAdjacentHTML(
       "beforeend",
-      `<li class="silinecek gorevler"   >
-          <label for="99" > Yapılması Gereken Bir Görev Yok </label>
-        </li>`
-    );
-
-  }
-  if(x.length==1){
-    let elma = document.querySelector(".silinecek")
-    elma.remove()
+      `<li class="gorevler">
+          <label> Yapılacak Bir Değer Yok </label>
+        </li>`)
   }
 }
-goreKontrol(gorevler_dizisi)
+faruk();
 
+
+var ekrana_yazdir = (gorevler_dizisi) => {
+  
+      for(var x=0;x<gorevler_dizisi.length;x++)
+      {       
+         icerik.insertAdjacentHTML(
+      "beforeend",
+      `<li class="gorevler">
+          <div>
+            <input id="${gorevler_dizisi[x].index}" onclick="tamam(this)" type="checkbox">
+          </div>
+          <label for="${gorevler_dizisi[x].index}"> ${gorevler_dizisi[x].text} </label>
+          <div class="icon_kapsayici">
+            <div>
+              <i onclick="sil(this)" id="${gorevler_dizisi[x].index}" class="fa-solid fa-trash"></i>
+            </div>
+            <div>
+              <i onclick="duzenle(this)" id="${gorevler_dizisi[x].index}" class="fa-solid fa-pen"></i>
+            </div>
+          </div>
+        </li>`
+    );
+  }
+};
+
+ekrana_yazdir(gorevler_dizisi)
 
 
 btn.addEventListener("click", (event) => {
-  
+  icerik.innerHTML = '<div></div>';
   event.preventDefault();
-  let yeni_gorev = {
+  var yeni_gorev = {
     text: gelen_text.value.trim(),
     checked: false,
     index: index++,
   };
 
+  if(yeni_gorev.text ==""){
+    alert("Bir Görev Girmelisiniz")
+  }
+  else{
   gorevler_dizisi.push(yeni_gorev);
-
-  
+  }
+  localStorage.setItem("todos",JSON.stringify(gorevler_dizisi))
   ekrana_yazdir(gorevler_dizisi);
-  
   gelen_text.value="";
+  
 });
 
-let ekrana_yazdir = (gorevler_dizisi) => {
-  localStorage.setItem("todos",JSON.stringify(gorevler_dizisi))
-/*   if(yeni_gorev.text==""){
-    alert("Her Hangi Bir Görev Girmeniz Gerekli")
-
-  }
-  else{ */
-     goreKontrol(gorevler_dizisi)
-    for(var x=0;x<gorevler_dizisi.length;x++)
-    {
-       icerik.insertAdjacentHTML(
-    "beforeend",
-    `<li class="gorevler">
-        <div>
-          <input id="${gorevler_dizisi[x].index}" onclick="tamam(this)" type="checkbox">
-        </div>
-        <label for="${gorevler_dizisi[x].index}"> ${gorevler_dizisi[x].text} </label>
-        <div class="icon_kapsayici">
-          <div>
-            <i onclick="sil(this)" id="${gorevler_dizisi[x].index}" class="fa-solid fa-trash"></i>
-          </div>
-          <div>
-            <i onclick="duzenle(this)" id="${gorevler_dizisi[x].index}" class="fa-solid fa-pen"></i>
-          </div>
-        </div>
-      </li>`
-  );
-    
- 
- 
-}
-
-};
 let gorev = gelen_text.value.trim();
 let index = 0 ;
-
-
 
     /*Silme Butonu*/
     let sil = (icon) => {
@@ -98,11 +86,11 @@ let index = 0 ;
       for (let x in gorevler_dizisi) {
         if (gorevler_dizisi[x].index == icon.id) {
           gorevler_dizisi.splice(x, 1);
+          localStorage.setItem("todos",JSON.stringify(gorevler_dizisi))
           break; // öğe bulunduğunda döngüden çıkın
-
-
         }
       }
+      faruk();
     }
 
     let tamam = (checkbox) => {
@@ -145,7 +133,6 @@ let index = 0 ;
 
       
       
-
 
 
 

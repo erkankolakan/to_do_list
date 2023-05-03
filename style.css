@@ -22,7 +22,7 @@ body{
     background-color:#b4dbb495;
     padding: 2rem 5rem;
     border:0.1rem var(--yesil) solid;
-    border-radius:1rem;
+    border-radius:5rem 0.5rem ;
     transition: 1s;
   }
 
