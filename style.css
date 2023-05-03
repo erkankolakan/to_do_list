@@ -1,35 +1,68 @@
 html{
     font-size: 10px;
 }
+:root{
+  --mavi: #3A98B9;
+  --krem : #FFF1DC;
+  --koyukrem : #E8D5C4;
+  --gri : #EEEEEE;
+  --yesil:#A4D0A4;
+}
 
 body{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 95vh;
-}
-:root{
---mavi: #3A98B9;
- --krem : #FFF1DC;
- --koyukrem : #E8D5C4;
- --gri : #EEEEEE;
+    background-color: #F7E1AE;
 }
   
 
-  #container{
-    background-color:var(--krem);
+#container{
+    background-color:#b4dbb495;
     padding: 2rem 5rem;
-    
+    border:0.1rem var(--yesil) solid;
+    border-radius:1rem;
+    transition: 1s;
   }
+
+.yuklenme_ekrani{
+  transform: scale(1.5);
+}
+
+
   .container_giris input[type="text"] {
     width: 35rem;
-    outline-color:var(--mavi);
+    outline-color:var( --yesil);
     border-radius: 0.5rem;
     border-color: var(--gri);
     margin:2rem 2rem 2rem 0 ;
     text-align: center;
     align-items: center;
+    transition: 1s;
   }
+
+  .container_giris input[value="Onayla"]{
+    background-color:#b4dbb495;
+    border: 0.1rem solid #F97B22;
+    border-radius:1rem;
+    transition: 0.5s;
+    
+  }
+  .container_giris input[value="Onayla"]:hover{
+    background-color:var( --yesil);
+    border: 0.1rem solid #F97B22;
+    transform: scale(1.1);
+    border-radius:1rem ;
+    cursor: pointer;
+  }
+
+
+  .container_giris input[type="text"]:focus {
+    border-radius:1rem 0;
+  }
+
+
   .container_giris input[type="button"] {
     height: 2rem;
     align-items: center;
@@ -42,11 +75,12 @@ body{
     list-style-type: none;
     font-size: 1.5rem;
     padding: 1rem;
-    background-color: #3A98B9;
-    border: 0.1rem solid red;
+    background-color: #FFF8D6;
+    border: 0.1rem solid #F97B22;
     margin-bottom:0.5rem ;
     transition: 0.5s;
     transform: scale(0.95);
+    border-radius:1rem;
     }
 
 
@@ -54,10 +88,14 @@ body{
     pointer-events:auto;
     transform: scale(1);
     box-shadow: inset;
+    
+   
 }
 
   .order ul li:hover{
-    background-color: aquamarine;
+    background-color:#fdf3c3 ;
+
+
   }
 
 
@@ -75,8 +113,34 @@ body{
     align-items: center;
   }
 
+.icon_kapsayici{
+  display: flex;
+}
 
-  
+.icon_kapsayici div:first-child  {
+  padding-right:0.5rem;
+  transition: 0.8s;
+  color: #F97B22;
+}
+
+.icon_kapsayici div:last-child  {
+  transition: 0.8s;
+  color: #F97B22;
+}
+.icon_kapsayici div:last-child:hover  {
+  cursor: pointer;
+  transform: scale(1.1);
+  color:green;
+}
+
+.icon_kapsayici div:first-child:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  padding-right:0.5rem;
+  color: red;
+}
+
+
   
   
   
