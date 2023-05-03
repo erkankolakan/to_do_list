@@ -42,42 +42,47 @@ btn.addEventListener("click", (event) => {
   let yeni_gorev = {
     text: gelen_text.value.trim(),
     checked: false,
-    index: index
+    index: index++,
   };
 
   gorevler_dizisi.push(yeni_gorev);
 
   
-  ekrana_yazdir(yeni_gorev);
-  index++;
+  ekrana_yazdir(gorevler_dizisi);
+  
   gelen_text.value="";
 });
 
-let ekrana_yazdir = (yeni_gorev) => {
+let ekrana_yazdir = (gorevler_dizisi) => {
   localStorage.setItem("todos",JSON.stringify(gorevler_dizisi))
-  if(yeni_gorev.text==""){
+/*   if(yeni_gorev.text==""){
     alert("Her Hangi Bir Görev Girmeniz Gerekli")
 
   }
-  else{
-  icerik.insertAdjacentHTML(
+  else{ */
+     goreKontrol(gorevler_dizisi)
+    for(var x=0;x<gorevler_dizisi.length;x++)
+    {
+       icerik.insertAdjacentHTML(
     "beforeend",
     `<li class="gorevler">
         <div>
-          <input id="${yeni_gorev.index}" onclick="tamam(this)" type="checkbox">
+          <input id="${gorevler_dizisi[x].index}" onclick="tamam(this)" type="checkbox">
         </div>
-        <label for="${yeni_gorev.index}"> ${yeni_gorev.text} </label>
+        <label for="${gorevler_dizisi[x].index}"> ${gorevler_dizisi[x].text} </label>
         <div class="icon_kapsayici">
           <div>
-            <i onclick="sil(this)" id="${yeni_gorev.index}" class="fa-solid fa-trash"></i>
+            <i onclick="sil(this)" id="${gorevler_dizisi[x].index}" class="fa-solid fa-trash"></i>
           </div>
           <div>
-            <i onclick="duzenle(this)" id="${yeni_gorev.index}" class="fa-solid fa-pen"></i>
+            <i onclick="duzenle(this)" id="${gorevler_dizisi[x].index}" class="fa-solid fa-pen"></i>
           </div>
         </div>
       </li>`
   );
-  goreKontrol(gorevler_dizisi)
+    
+ 
+ 
 }
 
 };
