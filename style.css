@@ -30,15 +30,13 @@ body{
   transform: scale(1.5);
 }
 
-
   .container_giris input[type="text"] {
     width: 35rem;
-    outline-color:var( --yesil);
+    outline-color:#F97B22;
     border-radius: 0.5rem;
     border-color: var(--gri);
     margin:2rem 2rem 2rem 0 ;
-    text-align: center;
-    align-items: center;
+
     transition: 1s;
   }
 
